@@ -27,13 +27,7 @@
 // }
 
 
-$photo = new Photo();
-$photo->title = "test title";
-$photo->description = "Some description of the photo goes here";
-$photo->filename = "image2.jpg";
-$photo->type = "image";
-$photo->size = "128";
-$photo->create();
+echo INCLUDES_PATH;
 
 
  ?>
