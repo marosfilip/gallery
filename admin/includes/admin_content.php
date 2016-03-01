@@ -21,11 +21,19 @@
           
 <?php 
 
-$users = User::find_all();
-foreach ($users as $user) {
-    echo $user->username . "<br />";
-}
+// $photos = Photo::find_all();
+// foreach ($photos as $photo) {
+//     echo $photo->title . "<br />";
+// }
 
+
+$photo = new Photo();
+$photo->title = "test title";
+$photo->description = "Some description of the photo goes here";
+$photo->filename = "image2.jpg";
+$photo->type = "image";
+$photo->size = "128";
+$photo->create();
 
 
  ?>
