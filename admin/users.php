@@ -37,6 +37,30 @@
                                 <i class="fa fa-file"></i> Blank Page
                             </li>
                         </ol>
+                        <?php $users = User::find_all(); ?>
+                        <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($users as $user) : ?><tr>
+                            <td><?php echo $user->id; ?></td>
+                            <td><?php echo $user->username; ?></td>
+                            <td><?php echo $user->first_name; ?></td>
+                            <td><?php echo $user->last_name; ?></td>
+                        <?php endforeach; ?>
+                        </tr>
+                            
+                        </tbody>
+                            
+                        </table>
+
+                         
                     </div>
                 </div>
                 <!-- /.row -->
