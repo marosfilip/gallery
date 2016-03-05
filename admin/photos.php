@@ -2,14 +2,9 @@
 <?php if(!$session->is_signed_in()) { redirect("login.php"); } ?>
 <?php 
 
-
 $photos = Photo::find_all();
 
-
-
-
-
- ?>
+?>
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -62,7 +57,7 @@ $photos = Photo::find_all();
                                     
                                     <div class="pictures_link">
                                             
-                                            <a href="delete_photo.php/?id=<?php echo $photo->photo_id;?>">Delete</a>
+                                            <a href="delete_photo.php/?id=<?php echo $photo->id;?>">Delete</a>
                                             <a href="#">Edit</a>
                                             <a href="#">View</a>
 
@@ -72,7 +67,7 @@ $photos = Photo::find_all();
 
 
                                         </td>
-                                        <td><?php echo $photo->photo_id; ?></td>
+                                        <td><?php echo $photo->id; ?></td>
                                         <td><?php echo $photo->filename; ?></td>
                                         <td><?php echo $photo->title; ?></td>
                                         <td><?php echo $photo->size; ?></td>
