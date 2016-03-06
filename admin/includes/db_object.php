@@ -4,6 +4,19 @@
 class Db_object {
 
 	protected static $db_table = "users";
+
+	public $errors = array();
+	public $upload_errors_array = array(
+			UPLOAD_ERR_OK			=> "There is no error.",
+			UPLOAD_ERR_INI_SIZE		=> "upload_max_filesize exceeded.",
+			UPLOAD_ERR_FORM_SIZE	=> "MAX_FILE_SIZE exceeded.",
+			UPLOAD_ERR_PARTIAL		=> "File uploaded ONLY partially.",
+			UPLOAD_ERR_NO_FILE		=> "No file selected for upload. Please select a file.",
+			UPLOAD_ERR_NO_TMP_DIR	=> "Missing temporary folder.",
+			UPLOAD_ERR_CANT_WRITE	=> "Writing to disc FAILED.",
+			UPLOAD_ERR_EXTENSION	=> "PHP extension stopped file upload."
+			);
+
 	public static function find_all()
 	{
 		return static::find_by_query("SELECT * FROM " . static::$db_table ." ");
