@@ -138,7 +138,16 @@ class Db_object {
 		return (mysqli_affected_rows($database->connection) == 1) ? true : false;
 	} // End of delete method
 
+	public static function count_all()
+	{
+		global $database;
 
+		$sqlstring = "SELECT COUNT(*) FROM " . static::$db_table;
+		$result_set = $database->db_query($sqlstring);
+		$row = mysqli_fetch_array($result_set);
+
+		return array_shift($row);
+	}
 
 
 

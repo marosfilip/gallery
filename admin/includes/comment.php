@@ -16,7 +16,7 @@ class Comment extends Db_object
 	public static function create_comment($photo_id, $author="default", $body)
 	{
 		if (!empty($photo_id) && !empty($author) && !empty($body)) {
-			$comment = new Comment():
+			$comment = new Comment();
 
 			$comment->photo_id = (int)$photo_id;
 			$comment->author = $author;
@@ -28,11 +28,11 @@ class Comment extends Db_object
 		}
 	}
 
-	public static function find_the_comments($photo_id)
+	public static function find_the_comments($photo_id=0)
 	{
-		global $databse;
+		global $database;
 		$sqlstring = "SELECT * FROM " . self::$db_table;
-		$sqlstring .= " WHERE photo_id = " . $database->escape_string($photo_id;)
+		$sqlstring .= " WHERE photo_id = " . $database->escape_string($photo_id);
 		$sqlstring .= " ORDER BY photo_id ASC"; 
 		return self::find_by_query($sqlstring);
 	}
