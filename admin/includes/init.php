@@ -1,8 +1,8 @@
 <?php 
 
 defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
-// define('SITE_ROOT', DS . 'var' . DS . 'www' . DS . 'html' . DS . 'gallery');
-define('SITE_ROOT', DS . 'Applications' . DS . 'MAMP' . DS . 'htdocs' . DS . 'gallery');
+define('SITE_ROOT', DS . 'var' . DS . 'www' . DS . 'html' . DS . 'gallery');
+// define('SITE_ROOT', DS . 'Applications' . DS . 'MAMP' . DS . 'htdocs' . DS . 'gallery');
 defined('INCLUDES_PATH') ? null : define('INCLUDES_PATH', SITE_ROOT.DS.'admin'.DS.'includes');
 
 

@@ -12,7 +12,7 @@ $user = new User();
                 $user->last_name = $_POST['last_name'];
                 $user->password = $_POST['password'];
                 $user->set_file($_FILES['user_image']);
-                $user->save_user_and_image();
+                $user->upload_image();
             }
         }
 
