@@ -1,4 +1,5 @@
 <?php include("includes/header.php"); ?>
+<?php include("includes/photo_library_modal.php"); ?>
 <?php if(!$session->is_signed_in()) { redirect("login.php"); } ?>
 <?php
 
@@ -50,9 +51,6 @@ if (empty($_GET['id'])) {
         </nav>
 
 
-
-
-
         <div id="page-wrapper">
 
         <div class="container-fluid">
@@ -66,7 +64,7 @@ if (empty($_GET['id'])) {
                         </h1>
 
                         <div class="col-md-3">
-                          <img class="img-responsive" src="<?php echo $user->image_path_placeholder(); ?>" alt="">
+                          <a href="" data-toggle="modal" data-target="#photo-library"><img class="img-responsive" src="<?php echo $user->image_path_placeholder(); ?>" alt=""></a>
                         </div>
                         
                         <form action="" method="POST" enctype="multipart/form-data">
@@ -95,7 +93,7 @@ if (empty($_GET['id'])) {
                                 <input type="submit" name="update" value="Update" class="btn btn-success btn-sm pull-right">
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="delete" value="Delete" class="btn btn-danger btn-sm pull-left">
+                                <a id="user-id" href="delete_user.php?id=<?php echo $user->id; ?>"><input type="submit" name="delete" value="Delete" class="btn btn-danger btn-sm pull-left"></a>
                             </div>
                         </div>
 
