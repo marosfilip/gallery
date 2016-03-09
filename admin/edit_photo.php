@@ -14,6 +14,7 @@ if (empty($_GET['id'])) {
                 $photo->alternate_text = $_POST['alternate_text'];
                 $photo->description = $_POST['description'];
                 $photo->save();
+                redirect("photos.php");
             }
         }
 

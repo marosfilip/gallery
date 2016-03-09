@@ -13,6 +13,7 @@ $user = new User();
                 $user->password = $_POST['password'];
                 $user->set_file($_FILES['user_image']);
                 $user->upload_image();
+                $user->save();
             }
         }
 

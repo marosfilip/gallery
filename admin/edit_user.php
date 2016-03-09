@@ -11,6 +11,7 @@ if (empty($_GET['id'])) {
         if (isset($_POST['delete'])) {
           $user->delete();
           redirect("users.php");
+          $session->message("User {$user->username} was deleted.");
         }
         if (isset($_POST['update'])){
             if($user){
@@ -21,11 +22,17 @@ if (empty($_GET['id'])) {
 
                 if (empty($_FILES['user_image'])) {
                   $user->save();
+
+                  redirect("users.php");
+                  $session->message("User information saved.");
+                  
                 } else {
                   $user->set_file($_FILES['user_image']);
                   $user->upload_image();
                   $user->save();
-                  redirect("edit_user.php?id={$user->id}");
+                  $session->message("User information saved.");
+                  redirect("users.php");
+                  
                 }
             }
         }
@@ -63,13 +70,13 @@ if (empty($_GET['id'])) {
                             <small>Edit User information here</small>
                         </h1>
 
-                        <div class="col-md-3">
-                          <a href="" data-toggle="modal" data-target="#photo-library"><img class="img-responsive" src="<?php echo $user->image_path_placeholder(); ?>" alt=""></a>
+                        <div class="col-md-6 user_image_box">
+                          <a href="#" data-toggle="modal" data-target="#photo-library"><img class="img-responsive" src="<?php echo $user->image_path_placeholder(); ?>" alt=""></a>
                         </div>
                         
                         <form action="" method="POST" enctype="multipart/form-data">
 
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             <div class="form-group">
                             <label for="title">Username</label>
                                 <input type="text" class="form-control" name="username" value="<?php echo $user->username; ?>">
